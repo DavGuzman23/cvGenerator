@@ -1,0 +1,33 @@
+.small-text {
+    font-size: 12px;
+}
+
+.custom-footer {
+    height: 35px; 
+    padding: 3px 0; 
+    background-color: #343a40; 
+    color: white;
+    width: 100%;
+     
+    bottom: 0; 
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+}
+
+
+body {
+    padding-bottom: 35px;
+}
+
+.custom-footer .navbar-nav .nav-link {
+    padding: 0 15px;
+}

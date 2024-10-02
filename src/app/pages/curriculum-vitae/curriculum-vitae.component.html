@@ -1,0 +1,14 @@
+<div *ngIf="cvData" class="container mt-5">
+    <h2 class="text-center mb-4">Curriculum Vitae de {{ cvData.fullName }}</h2>
+  
+    <h4>Datos Personales</h4>
+    <p><strong>Nombre:</strong> {{ cvData.fullName }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ cvData.birthDate }}</p>
+    <p><strong>Dirección:</strong> {{ cvData.address }}</p>
+    <p><strong>Teléfono:</strong> {{ cvData.phone }}</p>
+    <p><strong>Email:</strong> {{ cvData.email }}</p>
+    <p><strong>Nacionalidad:</strong> {{ cvData.nationality }}</p>
+  
+    <!-- Añadir más secciones aquí, como experiencia laboral, formación, etc. -->
+  
+  </div>

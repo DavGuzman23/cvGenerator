@@ -1,0 +1,148 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Genera tu CV</h2>
+  <form [formGroup]="cvForm" (ngSubmit)="onSubmit()">
+    <h4>Información Personal</h4>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="fullName" class="form-label">Nombre Completo</label>
+        <input formControlName="fullName" type="text" class="form-control" appInvalidControl placeholder="Nombre y Apellidos">
+        <div *ngIf="getControl('fullName')?.invalid && getControl('fullName')?.touched" class="text-danger">Campo obligatorio.</div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="birthDate" class="form-label">Fecha de Nacimiento</label>
+        <input formControlName="birthDate" type="date" class="form-control" appInvalidControl id="birthDate">
+        <div *ngIf="getControl('birthDate')?.invalid && getControl('birthDate')?.touched" class="text-danger">Campo obligatorio.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="address" class="form-label">Dirección</label>
+        <input type="text" class="form-control" formControlName="address" appInvalidControl id="address" placeholder="Dirección completa">
+        <div *ngIf="getControl('address')?.invalid && getControl('address')?.touched" class="text-danger">Campo obligatorio</div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="phone" class="form-label">Teléfono</label>
+        <input type="tel" class="form-control" formControlName="phone" appInvalidControl id="phone" placeholder="Número de teléfono">
+        <div *ngIf="getControl('phone')?.invalid && getControl('phone')?.touched" class="text-danger">Campo obligatorio</div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" appInvalidControl id="email" placeholder="Correo electrónico">
+        <div *ngIf="getControl('email')?.invalid && getControl('email')?.touched" class="text-danger">Campo obligatorio</div>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="nationality" class="form-label">Nacionalidad</label>
+          <input type="text" class="form-control" id="nationality" placeholder="Nacionalidad">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="photo" class="form-label">Foto (Opcional)</label>
+          <input type="file" class="form-control" id="photo" accept="image/*">
+        </div>
+      </div>
+  
+      <!-- Objetivo Profesional -->
+      <h4 class="mt-4">Objetivo Profesional</h4>
+      <div class="mb-3">
+        <label for="profile" class="form-label">Resumen profesional</label>
+        <textarea class="form-control" id="profile" rows="3" placeholder="Un breve resumen de tu experiencia y objetivos profesionales" ></textarea>
+      </div>
+  
+      <!-- Formación Académica -->
+      <h4 class="mt-4">Formación Académica</h4>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="degree" class="form-label">Título o Grado</label>
+          <input type="text" class="form-control" id="degree" placeholder="Título obtenido" >
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="institution" class="form-label">Institución</label>
+          <input type="text" class="form-control" id="institution" placeholder="Nombre de la universidad o instituto" >
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="startDate" class="form-label">Fecha de Inicio</label>
+          <input type="date" class="form-control" id="startDate" >
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="endDate" class="form-label">Fecha de Finalización</label>
+          <input type="date" class="form-control" id="endDate">
+        </div>
+      </div>
+  
+      <!-- Experiencia Laboral -->
+      <h4 class="mt-4">Experiencia Laboral</h4>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="company" class="form-label">Empresa</label>
+          <input type="text" class="form-control" id="company" placeholder="Nombre de la empresa" >
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="position" class="form-label">Puesto Ocupado</label>
+          <input type="text" class="form-control" id="position" placeholder="Puesto en la empresa" >
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="jobStartDate" class="form-label">Fecha de Inicio</label>
+          <input type="date" class="form-control" id="jobStartDate" >
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="jobEndDate" class="form-label">Fecha de Finalización</label>
+          <input type="date" class="form-control" id="jobEndDate">
+        </div>
+        <div class="col-12 mb-3">
+          <label for="jobDescription" class="form-label">Descripción de tareas</label>
+          <textarea class="form-control" id="jobDescription" rows="3" placeholder="Descripción de las responsabilidades y logros en este trabajo"></textarea>
+        </div>
+      </div>
+  
+      <!-- Habilidades -->
+      <h4 class="mt-4">Habilidades</h4>
+      <div class="mb-3">
+        <label for="skills" class="form-label">Habilidades Técnicas</label>
+        <textarea class="form-control" id="skills" rows="2" placeholder="Ej: Programación en Java, Gestión de Proyectos, Excel Avanzado"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="languages" class="form-label">Idiomas</label>
+        <textarea class="form-control" id="languages" rows="2" placeholder="Ej: Español (Nativo), Inglés (C1)"></textarea>
+      </div>
+  
+      <!-- Cursos Adicionales -->
+      <h4 class="mt-4">Cursos Adicionales</h4>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="courseName" class="form-label">Curso o Certificación</label>
+          <input type="text" class="form-control" id="courseName" placeholder="Nombre del curso o certificación">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="courseDate" class="form-label">Fecha de Obtención</label>
+          <input type="date" class="form-control" id="courseDate">
+        </div>
+      </div>
+  
+      <!-- Referencias -->
+      <h4 class="mt-4">Referencias (Opcional)</h4>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="refName" class="form-label">Nombre de la Referencia</label>
+          <input type="text" class="form-control" id="refName" placeholder="Nombre completo">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="refPosition" class="form-label">Cargo</label>
+          <input type="text" class="form-control" id="refPosition" placeholder="Cargo o relación">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="refPhone" class="form-label">Teléfono de Contacto</label>
+          <input type="tel" class="form-control" id="refPhone" placeholder="Número de contacto">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="refEmail" class="form-label">Email de Contacto</label>
+          <input type="email" class="form-control" id="refEmail" placeholder="Correo electrónico">
+        </div>
+      </div>
+  
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg" >Generar CV</button>
+      </div>
+  </form>
+</div>
+  
